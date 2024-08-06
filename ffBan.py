@@ -7,7 +7,7 @@ from langchain_community.chat_message_histories import ChatMessageHistory
 import hashlib
 import os
 from streamlit_lottie import st_lottie
-from dotenv import load_dotenv, find_dotenv
+
 from tavily import TavilyClient
 import datetime
 from langgraph.graph import StateGraph, START, END
