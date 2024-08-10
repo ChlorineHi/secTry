@@ -26,7 +26,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
 
-api_key = "860779ea256ea8bc5b82bc4a80805346.5XOw3HFZ9ZZqjkxB"
+api_key = "203ceb228d9eabbe35baedbc53b8605d.GZt1dk6lsR05l5u1"
 tavily_answer = TavilyClient(api_key='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')
 if not api_key:
     raise ValueError("ZHIPUAI_API_KEY is not set in the environment variables.")
@@ -45,7 +45,7 @@ def interact_with_zhipuai(question, usingTokens, tavily_Opened):
             return Additional_Answer + qna_question
     # Create ChatZhipuAI object
     chat_zhipu_ai = ChatZhipuAI(
-        api_key="860779ea256ea8bc5b82bc4a80805346.5XOw3HFZ9ZZqjkxB",
+        api_key="203ceb228d9eabbe35baedbc53b8605d.GZt1dk6lsR05l5u1",
         model="glm-4",
         messages=[
             {"role": "user", "content": question}
@@ -54,7 +54,7 @@ def interact_with_zhipuai(question, usingTokens, tavily_Opened):
             {
                 "type": "retrieval",
                 "retrieval": {
-                    "knowledge_id": "1809964567753887744",
+                    "knowledge_id": "1822282283881791488",
                     "prompt_template": (
                         "从文档\n\"\"\"\n{{knowledge}}\n\"\"\"\n中找问题\n\"\"\"\n{{question}}\n\"\"\"\n"
                         "的答案，找到答案就仅使用文档语句回答问题，找不到答案就用自身知识回答并且告诉用户该信息不是来自文档。\n"
@@ -77,7 +77,7 @@ def interact_with_zhipuai(question, usingTokens, tavily_Opened):
                 {
                     "type": "retrieval",
                     "retrieval": {
-                        "knowledge_id": "1809964567753887744",
+                        "knowledge_id": "1822282283881791488",
                         "prompt_template": (
                                 "从文档\n\"\"\"\n{{knowledge}}\n\"\"\"\n中找问题\n\"\"\"\n{{question}}\n\"\"\"\n"
                                 "的答案，找到答案就仅使用文档语句回答问题，找不到答案就用自身知识回答并且告诉用户该信息不是来自文档。\n"
@@ -99,7 +99,7 @@ def zhipu_chat_commemorate(question, temperatureChoice, promptAru):
     # str=input("Just feel free to ask me anything in the LangchainZhipuAI !")
     zhipuai_chat = ChatZhipuAI(
         temperature=temperatureChoice,
-        api_key="860779ea256ea8bc5b82bc4a80805346.5XOw3HFZ9ZZqjkxB",
+        api_key="203ceb228d9eabbe35baedbc53b8605d.GZt1dk6lsR05l5u1",
         model_name="glm-4",
 
     )
@@ -138,7 +138,7 @@ def zhipu_chat_commemorate(question, temperatureChoice, promptAru):
 
 #胖橘langgraph模块
 memory = SqliteSaver.from_conn_string(":memory:")
-zhipuai_client = ZhipuAI(api_key="860779ea256ea8bc5b82bc4a80805346.5XOw3HFZ9ZZqjkxB")
+zhipuai_client = ZhipuAI(api_key="203ceb228d9eabbe35baedbc53b8605d.GZt1dk6lsR05l5u1")
 # 定义 State 类型
 class State(TypedDict):
     messages: list[BaseMessage]  # 确保消息格式符合要求
@@ -148,7 +148,7 @@ graph_builder = StateGraph(State)
 def askingfunction(question: str) -> dict:
     llm = ChatZhipuAI(
         model_name="glm-4",
-        api_key="860779ea256ea8bc5b82bc4a80805346.5XOw3HFZ9ZZqjkxB",
+        api_key="203ceb228d9eabbe35baedbc53b8605d.GZt1dk6lsR05l5u1",
         messages=[
             {"role": "user", "content": question}
         ],
@@ -157,7 +157,7 @@ def askingfunction(question: str) -> dict:
             {
                 "type": "retrieval",
                 "retrieval": {
-                    "knowledge_id": "1809964567753887744",
+                    "knowledge_id": "1822282283881791488",
                     "prompt_template": (
                         "从文档\n\"\"\"\n{{knowledge}}\n\"\"\"\n中找问题\n\"\"\"\n{{question}}\n\"\"\"\n"
                         "的答案，找到答案就仅使用文档语句回答问题，找不到答案就用自身知识回答并且告诉用户该信息不是来自文档。\n"
@@ -177,7 +177,7 @@ def askingfunction(question: str) -> dict:
                 {
                     "type": "retrieval",
                     "retrieval": {
-                        "knowledge_id": "1809964567753887744",
+                        "knowledge_id": "1822282283881791488",
                         "prompt_template": (
                                 "从文档\n\"\"\"\n{{knowledge}}\n\"\"\"\n中找问题\n\"\"\"\n{{question}}\n\"\"\"\n"
                                 "的答案，找到答案就仅使用文档语句回答问题，找不到答案就用自身知识回答并且告诉用户该信息不是来自文档。\n"
